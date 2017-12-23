@@ -38,18 +38,19 @@ if($friend1){
 			$friendId1=$row1["friend_id"];
 
 
-			$query1=("SELECT nickname,user_id FROM user WHERE user_id='$friendId1' and nickname!='NULL'");
+			$query1=("SELECT nickname,user_id FROM user WHERE user_id='$friendId1' and nickname!=' '");
 			$result1= mysqli_query( $conn,$query1);
 			if(mysqli_num_rows($result1)>0){
 				$row1 =mysqli_fetch_array($result1);
 				$user=$row1["nickname"];
 				$uuu=$row1["user_id"];
-				?><ul><li><a href=' profilyllfriend.php ?nameid=$uuu'>$user</a></li></ul>
-				<form action='deletereq.php'>
+				echo"
+				<ul><li><a href=' profilyllfriend.php ?nameid=$uuu'>$user</a></li></ul>
+				<form action='deletefriendfromfriends.php'>
 					<input type='submit' value='Delete' id='submit'>
-				</form>
-				<br/></br>
-				<?php
+				</form>";
+				
+				
 			}
 
 			else {
@@ -63,7 +64,10 @@ if($friend1){
 						$useridll=$row2["user_id"];
 						$user=$userfirst.' '.$usersecond;
 
-						echo"<ul><li><a href=' profilyllfriend.php ?nameid=$useridll'>$user</a></li></ul><br/></br>";
+						echo"<ul><li><a href=' profilyllfriend.php ?nameid=$useridll'>$user</a></li></ul>
+						<form action='deletefriendfromfriends.php'>
+					<input type='submit' value='Delete' id='submit'>
+				</form>";
 
 					}
 				}
@@ -86,6 +90,25 @@ if($friend1){
 //$row=mysqli_fetch_array($friend);
 						$friendId3=$row3["user_id"];
 
+
+
+			$query1=("SELECT nickname,user_id FROM user WHERE user_id='$friendId3' and nickname!=' '");
+			$result1= mysqli_query( $conn,$query1);
+			if(mysqli_num_rows($result1)>0){
+				$row1 =mysqli_fetch_array($result1);
+				$user=$row1["nickname"];
+				$u1=$row1["user_id"];
+				echo"
+				<ul><li><a href=' profilyllfriend.php ?nameid=$u1'>$user</a></li></ul>
+				<form action='deletefriendfromfriends.php'>
+					<input type='submit' value='Delete' id='submit'>
+				</form>";
+				
+				
+			}
+
+			else {
+
 						$query4=("SELECT firstname,lastname,user_id FROM user WHERE user_id='$friendId3'");
 						$result4= mysqli_query( $conn,$query4);
 						if(mysqli_num_rows($result4)>0){
@@ -95,11 +118,14 @@ if($friend1){
 								$useridll=$row4["user_id"];
 								$user=$userfirst.' '.$usersecond;
 
-								echo"<ul><li><a href=' profilyllfriend.php ?nameid=$useridll'>$user</a></li></ul><br/></br>";
+								echo"<ul><li><a href=' profilyllfriend.php ?nameid=$useridll'>$user</a></li></ul>
+								<form action='deletefriendfromfriends.php'>
+					<input type='submit' value='Delete' id='submit'>
+				</form>";
 
 							}
 						}
-					}}}
+					}}}}
 					else{
 
 

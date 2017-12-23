@@ -77,7 +77,7 @@ if($result4){
     $name=$row3['poster_name'];
     $comment=$row3['caption'];
       $time=$row3['post_time'];
-      $image=$row3['image'];
+      $image2=$row3['image'];
 
   ?>
 <div class="comment_div"> 
@@ -85,8 +85,8 @@ if($result4){
  <p class="comments"><?php echo $comment;?></p> 
  
  <?php
-if($image!=null)
-echo "<img src='". $image."' width='100' heigh='100'/>";
+if($image2!=null)
+echo "<img src='". $image2."' width='100' heigh='100'/>";
 
 
 

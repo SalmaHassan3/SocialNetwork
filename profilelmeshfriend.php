@@ -129,7 +129,7 @@ else{
     <?php
 $conn=connect();
 
-    $query6=("SELECT poster_name,caption,post_time from posts WHERE user_id='$userIdm' && ispublic='1'order by post_id desc");
+    $query6=("SELECT poster_name,caption,post_time,image from posts WHERE user_id='$userIdm' && ispublic='1'order by post_id desc");
     $result6= mysqli_query( $conn,$query6);
     if($result6){
       if(mysqli_num_rows($result6)>0){
@@ -138,9 +138,17 @@ $conn=connect();
          $name=$row6['poster_name'];
          $comment=$row6['caption'];
          $time=$row6['post_time'];
+         $image=$row6['image'];
          ?>
          <p class="name"><strong>Posted By:</strong> <?php echo $name;?> <span style="float:right"><?php echo date("j-M-Y g:ia", strtotime($time)) ?></span></p>
          <p class="comments"><?php echo $comment;?></p> 
+<?php
+if($image!=null)
+echo "<img src='". $image."' width='100' heigh='100'/>";
+
+
+
+ ?>
 
          <?php
        }

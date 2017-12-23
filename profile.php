@@ -7,7 +7,7 @@ require'classes/friends.php';
 $another_ID=$_GET['nameid'];
 $Current_ID=$_SESSION["user_ID"]; 
 $_SESSION['idela']=$another_ID;
-echo "Hi";
+
 echo $another_ID;
 echo $Current_ID;
       if(friends::renderfriendship($Current_ID,$another_ID,'istherefriendship')==1){ //state friend 1

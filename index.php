@@ -6,11 +6,11 @@ $email_post=$_SESSION["email"];
 
 $conn=connect();
 /////////get image//////////////
-$sql20 ="SELECT image FROM user WHERE email='$email_post'";
-$result20 = mysqli_query( $conn,$sql20);
-$row20 =mysqli_fetch_array($result20);
+$sql0 ="SELECT image FROM user WHERE email='$email_post'";
+$result0 = mysqli_query( $conn,$sql0);
+$row0 =mysqli_fetch_array($result0);
 
-echo "<img src='".$row20["image"]."' width='25' heigh='15'/>";
+echo "<img src='".$row0["image"]."' width='25' heigh='15'/>";
 ////////////////////////
 
 $sql ="SELECT user_id FROM user WHERE email='$email_post'";
@@ -47,7 +47,7 @@ if(mysqli_num_rows($result3)>0){
   }
 }
 
-
+echo "<div id= chosen >  " . $user . "</div>";
 $query4="SELECT * FROM user WHERE firstname='$userfirst' and lastname='$usersecond'";
 $result4= mysqli_query( $conn,$query4);
 if(mysqli_num_rows($result4)>0){
@@ -142,7 +142,7 @@ $conn->close();
          $name=$row6['poster_name'];
          $comment=$row6['caption'];
          $time=$row6['post_time'];
-         $image=$row6['image'];
+         $image1=$row6['image'];
 
          ?>
          <form action="deletepost.php"><input type="submit" value="Delete" id="submit"></form>
@@ -151,8 +151,8 @@ $conn->close();
 
          <?php
          /////////get image//////////////
-if($image != null)
-echo "<img src='".$image."' width='100' heigh='100'/>";
+if($image1 != null)
+echo "<img src='".$image1."' width='100' heigh='100'/>";
 ////////////////////////
 
 

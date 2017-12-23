@@ -8,10 +8,11 @@ $email_post=$_SESSION["email"];
 //include 'connection.php';
 $conn=connect();
 /////////get image//////////////
-$sql20 ="SELECT image FROM user WHERE email='$email_post'";
-$result20 = mysqli_query( $conn,$sql20);
-$row20 =mysqli_fetch_array($result20);
-echo "<img src='".$row20["image"]."' width='75' height='75' id='image'/>";
+$sql2 ="SELECT image FROM user WHERE email='$email_post'";
+$result2 = mysqli_query( $conn,$sql2);
+$row2 =mysqli_fetch_array($result2);
+
+echo "<img src='".$row2["image"]."' width='75' height='75' id='image'/>";
 ////////////////////////
 
 $sql ="SELECT user_id FROM user WHERE email='$email_post'";
@@ -20,7 +21,7 @@ $row =mysqli_fetch_array($result);
 $userIdd=$row["user_id"];
  
  
-$query1=("SELECT nickname FROM user WHERE user_id='$userIdd' && nickname!='NULL'");
+$query1=("SELECT nickname FROM user WHERE user_id='$userIdd' && nickname!=' '");
 $result1= mysqli_query( $conn,$query1);
 if(mysqli_num_rows($result1)>0){
 $row1 =mysqli_fetch_array($result1);
@@ -78,7 +79,7 @@ function post()
       {
       document.getElementById("all_comments").innerHTML=response+document.getElementById("all_comments").innerHTML;
       document.getElementById("comment").value="";
-        //document.getElementById("username").value="";
+  document.getElementById("image").style.display = "none";
   
       }
     });

@@ -81,7 +81,7 @@ $name=$user;
 		mysqli_query($conn,$sql);
 	}
 	if($nickName !=null){
-		$sql =  "UPDATE User set nickname=''$nickName'' WHERE email= '$email1'";
+		$sql =  "UPDATE User set nickname='$nickName' WHERE email= '$email1'";
 		mysqli_query($conn,$sql);
 	}
 	if($password !=null){

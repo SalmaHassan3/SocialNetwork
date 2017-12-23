@@ -5,7 +5,7 @@
 $firstName=$_POST['firstName'];
 $lastName=$_POST['lastName'];
 $nickName=$_POST['nickName'];
-$password=$_POST['password'];
+//$password=$_POST['password'];
 $firstPhoneNumber=$_POST['firstPhoneNumber'];
 $secondPhoneNumber=$_POST['secondPhoneNumber'];
 $email=$_POST['email'];
@@ -42,7 +42,7 @@ else
     }
 }
 	    //$password = password_hash($password, PASSWORD_BCRYPT);
-$password= crypt($password,"st");
+$password= crypt($_POST['password'],"st");
 		$sql =  "INSERT into User(firstname,lastname,nickname,password,email,gender,birthdate,image,hometown,marital_status,aboutme,phone1,phone2) values ('$firstName','$lastName','$nickName','$password','$email','$gender','$birthdate','$image','$hometown','$maritalStatus','$aboutMe','$firstPhoneNumber','$secondPhoneNumber')";
 
 	
